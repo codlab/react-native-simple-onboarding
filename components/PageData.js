@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 const Page = ({ width, height, children }) => (
   <View style={{ width, height }}>
@@ -15,7 +15,7 @@ const PageContent = ({ children }) => (
   </View>
 );
 
-const PageData = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, ...rest }) => (
+const PageData = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, ...rest }) => (
   <Page {...rest}>
     <PageContent>
       <View style={styles.image}>
@@ -24,9 +24,16 @@ const PageData = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles
       <Text style={[styles.title, titleStyles, (isLight ? styles.titleLight : {}) ]}>
         {title}
       </Text>
-      <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
-        {subtitle}
+      {
+        !button &&
+        <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
+          {subtitle}
       </Text>
+      }
+      {
+        button && <Button>Skip</Button>
+      }
+      
     </PageContent>
   </Page>
 );
