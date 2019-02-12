@@ -57,7 +57,7 @@ export default class Onboarding extends Component {
           onScroll={this.updatePosition}
           scrollEventThrottle={100}
         >
-          {pages.map(({ image, title, subtitle, titleStyles, subtitleStyles }, idx) => (
+          {pages.map(({ image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress }, idx) => (
             <PageData
               key={idx}
               isLight={isLight}
@@ -66,6 +66,8 @@ export default class Onboarding extends Component {
               subtitle={subtitle}
               titleStyles={titleStyles}
               subtitleStyles={subtitleStyles}
+              button={button}
+              onButtonPress={onButtonPress}
               width={width}
               height={height}
             />
@@ -92,6 +94,8 @@ Onboarding.propTypes = {
     backgroundColor: PropTypes.string.isRequired,
     image: PropTypes.element.isRequired,
     title: PropTypes.string.isRequired,
+    button: PropTypes.bool,
+    onButtonPress: PropTypes.func,
     subtitle: PropTypes.string.isRequired,
   })).isRequired,
   bottomOverlay: PropTypes.bool,

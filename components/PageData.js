@@ -15,7 +15,18 @@ const PageContent = ({ children }) => (
   </View>
 );
 
-const PageData = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, ...rest }) => (
+const PageDataButton = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
+  <Page {...rest}>
+    <PageContent>
+      <View style={styles.image}>
+        {image}
+      </View>
+      <Button title={title} onPress={() => onButtonPress && onButtonPress()} />
+    </PageContent>
+  </Page>
+);
+
+const PageDataStandard = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
   <Page {...rest}>
     <PageContent>
       <View style={styles.image}>
@@ -24,19 +35,17 @@ const PageData = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles
       <Text style={[styles.title, titleStyles, (isLight ? styles.titleLight : {}) ]}>
         {title}
       </Text>
-      {
-        !button &&
-        <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
-          {subtitle}
+      <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
+        {subtitle}
       </Text>
-      }
-      {
-        button && <Button>Skip</Button>
-      }
-      
     </PageContent>
   </Page>
 );
+
+const PageData = (params) => {
+  if(params && params.button) return PageDataButton(params);
+  return PageDataStandard(params);
+}
 
 const styles = {
   content: {
