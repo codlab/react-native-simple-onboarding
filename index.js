@@ -48,7 +48,7 @@ export default class Onboarding extends Component {
     const isLight = tinycolor(backgroundColor).getBrightness() > 180;
 
     return (
-      <View style={{ flex: 1, backgroundColor: backgroundColor, justifyContent: 'center' }}>
+      <View style={{ flex: 1, backgroundColor: 'transparent', justifyContent: 'center' }}>
         <ScrollView
           ref="scroll"
           pagingEnabled={true}
@@ -57,9 +57,10 @@ export default class Onboarding extends Component {
           onScroll={this.updatePosition}
           scrollEventThrottle={100}
         >
-          {pages.map(({ image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress }, idx) => (
+          {pages.map(({ backgroundImage, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress }, idx) => (
             <PageData
               key={idx}
+              backgroundImage={backgroundImage}
               isLight={isLight}
               image={image}
               title={title}
@@ -92,6 +93,7 @@ export default class Onboarding extends Component {
 Onboarding.propTypes = {
   pages: PropTypes.arrayOf(PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.string,
     image: PropTypes.element.isRequired,
     title: PropTypes.string.isRequired,
     button: PropTypes.bool,

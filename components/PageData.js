@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
 
 const Page = ({ width, height, children }) => (
   <View style={{ width, height }}>
@@ -15,20 +15,25 @@ const PageContent = ({ children }) => (
   </View>
 );
 
-const PageDataButton = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
+const PageDataButton = ({ backgroundImage, isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
   <Page {...rest}>
     <PageContent>
+      {backgroundImage}
       <View style={styles.image}>
         {image}
       </View>
       <Button title={title} onPress={() => onButtonPress && onButtonPress()} />
     </PageContent>
   </Page>
+  
 );
 
-const PageDataStandard = ({ isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
+const PageDataStandard = ({ backgroundImage, isLight, image, title, subtitle, titleStyles, subtitleStyles, button, onButtonPress, ...rest }) => (
   <Page {...rest}>
+        {backgroundImage}
+
     <PageContent>
+          <View style={styles.content}>
       <View style={styles.image}>
         {image}
       </View>
@@ -38,6 +43,7 @@ const PageDataStandard = ({ isLight, image, title, subtitle, titleStyles, subtit
       <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
         {subtitle}
       </Text>
+    </View>
     </PageContent>
   </Page>
 );
@@ -49,6 +55,9 @@ const PageData = (params) => {
 
 const styles = {
   content: {
+    width:'100%',
+    height: '100%',
+    // backgroundColor:'red',
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
