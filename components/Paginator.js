@@ -65,12 +65,12 @@ const styles = {
     backgroundColor: 'transparent',
   },
   buttonLeft: {
-    width: 70,
+    width: 'auto',
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
   buttonRight: {
-    width: 70,
+    width: 'auto',
     justifyContent: 'flex-end',
     alignItems: 'center',
   }
