@@ -5,7 +5,7 @@ import PageDots from './PageDots';
 import { SymbolButton, TextButton } from './Buttons';
 
 const getDefaultStyle = (isLight) => ({
-  color: isLight ? 'rgba(0, 0, 0, 0.8)' : '#fff',
+  color: isLight ? 'rgba(0, 0, 0, 0.8)' : 'red',
 });
 
 const SkipButton = ({ isLight, ...props }) => (
