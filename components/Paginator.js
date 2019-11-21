@@ -10,7 +10,9 @@ const getDefaultStyle = (isLight) => ({
 
 const SkipButton = ({ isLight, ...props }) => (
   <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
-    Skip
+    <View style={{flex: 0, backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
+      Passer
+    </View>
   </TextButton>
 );
 
@@ -19,7 +21,9 @@ const NextButton = ({ isLight, ...props }) => (
   //   →
   // </SymbolButton>
   <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
-    Suivant
+    <View style={{flex: 0, backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
+      Suivant
+    </View>
   </TextButton>
 );
 const DoneButton = ({ isLight, size, ...props }) => (
