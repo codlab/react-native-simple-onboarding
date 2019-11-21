@@ -9,15 +9,18 @@ const getDefaultStyle = (isLight) => ({
 });
 
 const SkipButton = ({ isLight, ...props }) => (
-  <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
+  <TextButton {...props} textStyle={getDefaultStyle(isLight)} style={{backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
     Skip
   </TextButton>
 );
 
 const NextButton = ({ isLight, ...props }) => (
-  <SymbolButton {...props} textStyle={getDefaultStyle(isLight)}>
-    →
-  </SymbolButton>
+  // <SymbolButton {...props} textStyle={getDefaultStyle(isLight)}>
+  //   →
+  // </SymbolButton>
+  <Text {...props} textStyle={getDefaultStyle(isLight)} style={{backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
+    Suivant
+  </Text>
 );
 const DoneButton = ({ isLight, size, ...props }) => (
   <SymbolButton {...props} size={size} textStyle={getDefaultStyle(isLight)} style={{ borderRadius: size / 2, backgroundColor: 'rgba(255, 255, 255, 0.10)' }}>
