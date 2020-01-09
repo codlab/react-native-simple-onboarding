@@ -41,10 +41,10 @@ const PageDataStandard = ({ backgroundImage, isLight, image, title, subtitle, ti
         <View style={styles.image}>
           {image}
         </View>
-        <Text style={[styles.title, titleStyles, (isLight ? styles.titleLight : {}) ]}>
+        <Text style={[styles.title, titleStyles]}>
           {title}
         </Text>
-        <Text style={[styles.subtitle, subtitleStyles, (isLight ? styles.subtitleLight : {}) ]}>
+        <Text style={[styles.subtitle, subtitleStyles]}>
           {subtitle}
         </Text>
       </View>
