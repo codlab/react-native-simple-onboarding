@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 const Page = ({ width, height, children }) => (
   <View style={{ width, height }}>
@@ -22,9 +23,11 @@ const PageDataButton = ({ backgroundImage, isLight, image, title, subtitle, titl
       <View style={styles.image}>
         {image}
       </View>
-      <TouchableOpacity onPress={() => onButtonPress && onButtonPress()} style={styles.customButton}>
-        <Text style={styles.textCustomButton}>{title}</Text>
-      </TouchableOpacity>
+      <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite">
+        <TouchableOpacity onPress={() => onButtonPress && onButtonPress()} style={styles.customButton}>
+          <Text style={styles.textCustomButton}>{title}</Text>
+        </TouchableOpacity>
+      </Animatable.View>
     </PageContent>
   </Page>
   
@@ -69,6 +72,7 @@ const styles = {
     height: 'auto',
     paddingBottom: 0,
     alignItems: 'center',
+    alignSelf: 'center'
   },
   title: {
     textAlign: 'center',
