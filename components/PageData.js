@@ -22,7 +22,9 @@ const PageDataButton = ({ backgroundImage, isLight, image, title, subtitle, titl
       <View style={styles.image}>
         {image}
       </View>
-      <Button title={title} onPress={() => onButtonPress && onButtonPress()} />
+      <TouchableOpacity onPress={() => onButtonPress && onButtonPress()} style={styles.customButton}>
+        <Text style={styles.textCustomButton}>{title}</Text>
+      </TouchableOpacity>
     </PageContent>
   </Page>
   
@@ -85,6 +87,17 @@ const styles = {
   subtitleLight: {
     color: 'rgba(0, 0, 0, 0.7)',
   },
+  customButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: 'white',
+    borderRadius: 24 
+  },
+  textCustomButton: {
+    color: '#12308A',
+    fontSize: 14,
+    fontWeight: 'bold'
+  }
 };
 
 export default PageData;
