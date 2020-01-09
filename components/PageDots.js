@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
 
 import PageDots from './PageDots';
 import { SymbolButton, TextButton } from './Buttons';
@@ -18,8 +18,7 @@ const NextButton = ({ isLight, ...props }) => (
   <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
 );
 const DoneButton = ({ isLight, size, ...props }) => (
-    <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
-
+  <Image {...props} source={require('../images/check.png')} style={styles.imageArrow} />
 );
 
 const BUTTON_SIZE = 40;

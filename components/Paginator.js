@@ -1,32 +1,24 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
 
 import PageDots from './PageDots';
 import { SymbolButton, TextButton } from './Buttons';
 
 const getDefaultStyle = (isLight) => ({
-  color: isLight ? 'rgba(0, 0, 0, 0.8)' : 'red',
+  color: isLight ? 'rgba(0, 0, 0, 0.8)' : '#fff',
 });
 
 const SkipButton = ({ isLight, ...props }) => (
-  <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
-    <View style={{flex: 0, backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
-      Passer
-    </View>
+  <TextButton {...props} textStyle={{color: 'white', fontSize: 16}}>
+    Skip
   </TextButton>
 );
 
 const NextButton = ({ isLight, ...props }) => (
-  <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
-    <View style={{flex: 0, backgroundColor: 'white', color: '#137BE3', paddingHorizontal: 6, paddingVertical: 12}}>
-      Suivant
-    </View>
-  </TextButton>
+  <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
 );
 const DoneButton = ({ isLight, size, ...props }) => (
-  <SymbolButton {...props} size={size} textStyle={getDefaultStyle(isLight)} style={{ borderRadius: size / 2, backgroundColor: 'rgba(255, 255, 255, 0.10)' }}>
-    ✓
-  </SymbolButton>
+  <Image {...props} source={require('../images/check.png')} style={styles.imageArrow} />
 );
 
 const BUTTON_SIZE = 40;
@@ -50,30 +42,29 @@ const Paginator = ({ isLight, overlay, showSkip, showNext, showDone, pages, curr
 
 const styles = {
   container: {
-    width: '100%',
     height: 60,
     paddingHorizontal: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    position: 'absolute',
-    bottom:0,
-    left:0,
-    zIndex:3,
-    backgroundColor: "grey",
   },
   containerOverlay: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   buttonLeft: {
-    width: 'auto',
+    width: 70,
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
   buttonRight: {
-    width: 'auto',
+    width: 70,
     justifyContent: 'flex-end',
     alignItems: 'center',
+  },
+  imageArrow: {
+    width: 18,
+    height: 18,
+    resizeMode: 'contain'
   }
 };
 
