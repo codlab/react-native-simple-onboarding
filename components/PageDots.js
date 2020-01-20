@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Image } from 'react-native';
 
-import PageDots from './PageDots';
 import { SymbolButton, TextButton } from './Buttons';
 
 const getDefaultStyle = (isLight) => ({
