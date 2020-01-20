@@ -13,6 +13,16 @@ const SkipButton = ({ isLight, ...props }) => (
   </TextButton>
 );
 
+const PageDots = ({ isLight, selected }) => (
+  <View
+    style={{
+      ...styles.element,
+      ...styles.elementDot,
+      backgroundColor: isLight ? (selected ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.3)') : (selected ? '#fff' : 'rgba(255, 255, 255, 0.5)'),
+    }}
+  />
+);
+
 const NextButton = ({ isLight, ...props }) => (
   <TextButton {...props} textStyle={getDefaultStyle(isLight)}>
     <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
