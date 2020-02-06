@@ -15,10 +15,14 @@ const SkipButton = ({ isLight, ...props }) => (
 );
 
 const NextButton = ({ isLight, ...props }) => (
-  <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
+  <TextButton {...props} textStyle={{color: 'white', fontSize: 16}}>
+    <Image {...props} source={require('../images/arrow.png')} style={styles.imageArrow} />
+  </TextButton>
 );
 const DoneButton = ({ isLight, size, ...props }) => (
-  <Image {...props} source={require('../images/check.png')} style={styles.imageArrow} />
+  <TextButton {...props} textStyle={{color: 'white', fontSize: 16}}>
+    <Image {...props} source={require('../images/check.png')} style={styles.imageArrow} />
+  </TextButton>
 );
 
 const BUTTON_SIZE = 40;
