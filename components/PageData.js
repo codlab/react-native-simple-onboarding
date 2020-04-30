@@ -98,6 +98,7 @@ const styles = {
     borderRadius: 24 
   },
   textCustomButton: {
+    textAlign: 'center',
     color: '#12308A',
     fontSize: 14,
     fontWeight: 'bold'
